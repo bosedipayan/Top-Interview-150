@@ -1,0 +1,42 @@
+class Solution {
+public:
+//     bool endInterval(int i,int n,vector<int>& nums)
+//     {
+//         if(i > n)
+//         {
+//             return 0;
+//         }
+//         if(i == n)
+//         {
+//             return true;
+//         }
+        
+//         int res=nums[i];
+//         for(int c=res;c>0;c--)
+//         {
+//             if(endInterval(i+c,n,nums) == true)
+//             {
+//                 return true;
+//             }
+//         }
+//         return false;
+//     }
+    bool canJump(vector<int>& nums) {
+        int n=nums.size();
+        
+        // if(endInterval(0,n,nums))
+        // {
+        //     return true;
+        // }
+        // return false;
+        
+        int res=0;
+        for(int i=0;i<n;i++)
+        {
+            if(i > res) return 0;
+            
+            res=max(res, i+nums[i]);
+        }
+        return 1;
+    }
+};
