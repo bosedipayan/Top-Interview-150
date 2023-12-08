@@ -1,0 +1,37 @@
+class Solution {
+public:
+    string convert(string s, int numRows) {
+        if(numRows == 1) return s;
+        
+        vector<string> v(numRows, "");
+        
+        int i=0,j=0;
+        bool check=true;
+        while(i < s.size())
+        {
+            if(check)
+            {
+                v[j]+=s[i];
+                j++;
+            }
+            else
+            {
+                v[j]+=s[i];
+                j--;
+            }
+            if(j == 0 || j==numRows-1)
+            {
+                check= !check;
+            }
+            
+            i++;
+        }
+        
+        string ans="";
+        for(auto it:v)
+        {
+            ans+=it;
+        }
+        return ans;
+    }
+};
